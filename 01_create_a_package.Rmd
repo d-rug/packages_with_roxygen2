@@ -98,21 +98,25 @@ git remote add origin https://github.com/liza-wood/PatentPackage
 git push -u -f origin master
 ```
 
-Now this package lives on GitHub: https://github.com/liza-wood/PatentPackage. Which also means we can all use it now by installing it from GitHub:
+Now this package lives on GitHub: https://github.com/liza-wood/PatentPackage. 
+### Using the package   
+Now the the package is on GitHub, we can all use it! Run the following line in your console to download the package directly from GitHub:  
 
 ```{r}
 devtools::install_github("liza-wood/PatentPackage")
 ```
+
+Then load the package into your session library. You can check out the documentation in the help file.  
 
 ```{r}
 library(PatentPackage)
 ?read_patents()
 ```
 
-And you can download the data stored in this workshop repository, the patents for 52 weeks from 1977, to trial the function. First download the data here:
+Now to trial the function, you can download the data stored in this workshop repository:
+https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2Fd-rug%2Fpackages_with_roxygen2%2Ftree%2Fmain%2Fdata 
 
-
-Then give it a try once you've installed the package: 
+These are the patents for 52 weeks from 1977. Once you know where that directory is saved, enter in that filepath to the `read_patents()` function. You should get a dataframe of all the patents.  
 ```{r}
 patents <- read_patents("data/")
 head(patents)

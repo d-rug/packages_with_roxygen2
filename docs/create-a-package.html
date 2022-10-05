@@ -237,14 +237,18 @@ git add .
 git commit -m &quot;Setting up package to GitHub&quot;
 git remote add origin https://github.com/liza-wood/PatentPackage
 git push -u -f origin master</code></pre>
-<p>Now this package lives on GitHub: <a href="https://github.com/liza-wood/PatentPackage" class="uri">https://github.com/liza-wood/PatentPackage</a>. Which also means we can all use it now by installing it from GitHub:</p>
+<p>Now this package lives on GitHub: <a href="https://github.com/liza-wood/PatentPackage" class="uri">https://github.com/liza-wood/PatentPackage</a>.
+### Using the package<br />
+Now the the package is on GitHub, we can all use it! Run the following line in your console to download the package directly from GitHub:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="create-a-package.html#cb8-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;liza-wood/PatentPackage&quot;</span>)</span></code></pre></div>
 <pre><code>## Skipping install of &#39;PatentPackage&#39; from a github remote, the SHA1 (1475555a) has not changed since last install.
 ##   Use `force = TRUE` to force installation</code></pre>
+<p>Then load the package into your session library. You can check out the documentation in the help file.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="create-a-package.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(PatentPackage)</span>
 <span id="cb10-2"><a href="create-a-package.html#cb10-2" aria-hidden="true" tabindex="-1"></a>?<span class="fu">read_patents</span>()</span></code></pre></div>
-<p>And you can download the data stored in this workshop repository, the patents for 52 weeks from 1977, to trial the function. First download the data here:</p>
-<p>Then give it a try once you’ve installed the package:</p>
+<p>Now to trial the function, you can download the data stored in this workshop repository:
+<a href="https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2Fd-rug%2Fpackages_with_roxygen2%2Ftree%2Fmain%2Fdata" class="uri">https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2Fd-rug%2Fpackages_with_roxygen2%2Ftree%2Fmain%2Fdata</a></p>
+<p>These are the patents for 52 weeks from 1977. Once you know where that directory is saved, enter in that filepath to the <code>read_patents()</code> function. You should get a dataframe of all the patents.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="create-a-package.html#cb11-1" aria-hidden="true" tabindex="-1"></a>patents <span class="ot">&lt;-</span> <span class="fu">read_patents</span>(<span class="st">&quot;data/&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning: 1 failed to parse.</code></pre>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="create-a-package.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(patents)</span></code></pre></div>
