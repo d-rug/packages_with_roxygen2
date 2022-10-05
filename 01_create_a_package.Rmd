@@ -86,7 +86,7 @@ This generates a `man/` folder that stores the documenation.
 
 Now we want to link your package to a GitHub repository. In GitHub, create a new repository with your package name, with no other templates. It should then appear as below.
 
-![New project](img/new_proj.png)
+![](img/new_proj.png)
 
 Then inside your empty RStudio space that you have been building the package, link the local project to the GitHub repository using the following lines in the Terminal, replacing the GitHub repo directory with the link to your directory.
 
@@ -100,11 +100,21 @@ git push -u -f origin master
 
 Now this package lives on GitHub: https://github.com/liza-wood/PatentPackage. Which also means we can all use it now by installing it from GitHub:
 
-```
+```{r}
 devtools::install_github("liza-wood/PatentPackage")
 ```
 
 ```{r}
-?PatentPackage::read_patents()
+library(PatentPackage)
+?read_patents()
+```
+
+And you can download the data stored in this workshop repository, the patents for 52 weeks from 1977, to trial the function. First download the data here:
+
+
+Then give it a try once you've installed the package: 
+```{r}
+patents <- read_patents("data/")
+head(patents)
 ```
 

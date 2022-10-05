@@ -230,10 +230,7 @@ Depends:
 <div id="making-your-package-available" class="section level3 hasAnchor" number="0.0.3">
 <h3><span class="header-section-number">0.0.3</span> Making your package available<a href="create-a-package.html#making-your-package-available" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Now we want to link your package to a GitHub repository. In GitHub, create a new repository with your package name, with no other templates. It should then appear as below.</p>
-<div class="figure">
-<img src="img/new_proj.png" alt="" />
-<p class="caption">New project</p>
-</div>
+<p><img src="img/new_proj.png" /></p>
 <p>Then inside your empty RStudio space that you have been building the package, link the local project to the GitHub repository using the following lines in the Terminal, replacing the GitHub repo directory with the link to your directory.</p>
 <pre><code>git init
 git add .
@@ -241,8 +238,44 @@ git commit -m &quot;Setting up package to GitHub&quot;
 git remote add origin https://github.com/liza-wood/PatentPackage
 git push -u -f origin master</code></pre>
 <p>Now this package lives on GitHub: <a href="https://github.com/liza-wood/PatentPackage" class="uri">https://github.com/liza-wood/PatentPackage</a>. Which also means we can all use it now by installing it from GitHub:</p>
-<pre><code>devtools::install_github(&quot;liza-wood/PatentPackage&quot;)</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="create-a-package.html#cb9-1" aria-hidden="true" tabindex="-1"></a>?PatentPackage<span class="sc">::</span><span class="fu">read_patents</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="create-a-package.html#cb8-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;liza-wood/PatentPackage&quot;</span>)</span></code></pre></div>
+<pre><code>## Skipping install of &#39;PatentPackage&#39; from a github remote, the SHA1 (1475555a) has not changed since last install.
+##   Use `force = TRUE` to force installation</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="create-a-package.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(PatentPackage)</span>
+<span id="cb10-2"><a href="create-a-package.html#cb10-2" aria-hidden="true" tabindex="-1"></a>?<span class="fu">read_patents</span>()</span></code></pre></div>
+<p>And you can download the data stored in this workshop repository, the patents for 52 weeks from 1977, to trial the function. First download the data here:</p>
+<p>Then give it a try once you’ve installed the package:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="create-a-package.html#cb11-1" aria-hidden="true" tabindex="-1"></a>patents <span class="ot">&lt;-</span> <span class="fu">read_patents</span>(<span class="st">&quot;data/&quot;</span>)</span></code></pre></div>
+<pre><code>## Warning: 1 failed to parse.</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="create-a-package.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(patents)</span></code></pre></div>
+<pre><code>##         WKU                          Title   App_Date Issue_Date
+## 1 D02428814                 Diver s helmet 1975-09-08 1977-01-04
+## 2 D02428822 Combined brush and ice scraper 1976-04-21 1977-01-04
+## 3 D02428830                     Toothbrush 1975-09-17 1977-01-04
+## 4 D02428849        Stand for potted plants 1976-01-07 1977-01-04
+## 5 D02428857                          Chair 1975-08-18 1977-01-04
+## 6 D02428865        Seat or similar article 1975-06-02 1977-01-04
+##                 Inventor                        Assignee   ICL_Class
+## 1       Richard F. Jones          General Aquadyne, Inc.       D0203
+## 2      Otto W. Schneider            Erwin Weller Company D0401;D0705
+## 3     Thomas J. De Marco                                 D0402;D2402
+## 4             Peter Diaz Lawrence Peska Associates, Inc.       D0604
+## 5 Lee Harold Fister, Jr.                                       D0601
+## 6       Taylor M. Potter                                       D0601
+##                                       References
+## 1                                3845768;3943571
+## 2        D184943;D228585;2856621;2981964;3017649
+## 3                 D56858;1209789;2677843;3677264
+## 4                        D137106;D165328;1406893
+## 5                                               
+## 6 D49656;D219583;D227834;D234171;D237923;3563599
+##                                                                                                          Claims
+## 1                                                         The ornamental design for a diver s helmet, as shown.
+## 2 The ornamental design for a combined brush and ice scraper, or the like,substantially as shown and described.
+## 3                                  The ornamental design for a toothbrush, substantially as shown anddescribed.
+## 4                                   The ornamental design for a stand for potted plants, substantially asshown.
+## 5                                                                  The ornamental design for a chair, as shown.
+## 6                                                The ornamental design for a seat or similar article, as shown.</code></pre>
 
 </div>
 </div>
